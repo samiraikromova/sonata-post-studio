@@ -2,95 +2,103 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Classical Musical Community Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Classical Music Palette */
+    --background: 42 15% 97%;
+    --foreground: 345 30% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 42 20% 95%;
+    --card-foreground: 345 25% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 42 20% 95%;
+    --popover-foreground: 345 25% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 345 65% 25%;
+    --primary-foreground: 42 30% 95%;
+    --primary-glow: 345 55% 35%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 45 45% 85%;
+    --secondary-foreground: 345 30% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 45 85% 65%;
+    --accent-foreground: 345 30% 15%;
+    --accent-glow: 45 75% 75%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 42 15% 90%;
+    --muted-foreground: 345 15% 45%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 42 30% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 42 20% 88%;
+    --input: 42 20% 88%;
+    --ring: 345 65% 25%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Musical Design Elements */
+    --gradient-classical: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-golden: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.2);
+    --shadow-golden: 0 8px 25px -8px hsl(var(--accent) / 0.3);
+    
+    --transition-musical: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 42 20% 95%;
+    --sidebar-foreground: 345 25% 20%;
+    --sidebar-primary: 345 65% 25%;
+    --sidebar-primary-foreground: 42 30% 95%;
+    --sidebar-accent: 45 45% 85%;
+    --sidebar-accent-foreground: 345 30% 15%;
+    --sidebar-border: 42 20% 88%;
+    --sidebar-ring: 345 65% 25%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 345 35% 8%;
+    --foreground: 42 30% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 345 30% 12%;
+    --card-foreground: 42 25% 90%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 345 30% 12%;
+    --popover-foreground: 42 25% 90%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 345 55% 65%;
+    --primary-foreground: 345 35% 8%;
+    --primary-glow: 345 65% 75%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 345 25% 20%;
+    --secondary-foreground: 42 25% 90%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 45 75% 75%;
+    --accent-foreground: 345 35% 8%;
+    --accent-glow: 45 85% 85%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --muted: 345 25% 15%;
+    --muted-foreground: 42 15% 65%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 65%;
+    --destructive-foreground: 42 30% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 345 25% 20%;
+    --input: 345 25% 20%;
+    --ring: 345 55% 65%;
+
+    --sidebar-background: 345 30% 12%;
+    --sidebar-foreground: 42 25% 90%;
+    --sidebar-primary: 345 55% 65%;
+    --sidebar-primary-foreground: 345 35% 8%;
+    --sidebar-accent: 345 25% 20%;
+    --sidebar-accent-foreground: 42 25% 90%;
+    --sidebar-border: 345 25% 20%;
+    --sidebar-ring: 345 55% 65%;
   }
 }
 
@@ -101,5 +109,88 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Musical Animations */
+  .musical-float {
+    animation: musical-float 6s ease-in-out infinite;
+  }
+
+  .staff-lines {
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 15px,
+      hsl(var(--border)) 15px,
+      hsl(var(--border)) 16px
+    );
+  }
+
+  .treble-clef {
+    position: relative;
+  }
+
+  .treble-clef::before {
+    content: "𝄞";
+    font-size: 2rem;
+    opacity: 0.1;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    color: hsl(var(--primary));
+  }
+
+  .instrument-glow {
+    transition: var(--transition-musical);
+  }
+
+  .instrument-glow:hover {
+    box-shadow: var(--shadow-golden);
+    transform: translateY(-2px);
+  }
+
+  .harmony-card {
+    background: var(--gradient-subtle);
+    border: 1px solid hsl(var(--border));
+    transition: var(--transition-musical);
+  }
+
+  .harmony-card:hover {
+    box-shadow: var(--shadow-elegant);
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes musical-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }

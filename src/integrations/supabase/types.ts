@@ -77,6 +77,7 @@ export type Database = {
           message: Json | null
           session_id: string
           type: string | null
+          user_id: string | null
         }
         Insert: {
           created_at?: string | null
@@ -84,6 +85,7 @@ export type Database = {
           message?: Json | null
           session_id: string
           type?: string | null
+          user_id?: string | null
         }
         Update: {
           created_at?: string | null
@@ -91,6 +93,7 @@ export type Database = {
           message?: Json | null
           session_id?: string
           type?: string | null
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -102,6 +105,13 @@ export type Database = {
       binary_quantize: {
         Args: { "": string } | { "": unknown }
         Returns: unknown
+      }
+      get_user_chat_sessions: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          last_message_at: string
+          session_id: string
+        }[]
       }
       halfvec_avg: {
         Args: { "": number[] }
@@ -176,6 +186,10 @@ export type Database = {
       sparsevec_typmod_in: {
         Args: { "": unknown[] }
         Returns: number
+      }
+      user_owns_chat_session: {
+        Args: { session_id_param: string }
+        Returns: boolean
       }
       vector_avg: {
         Args: { "": number[] }
